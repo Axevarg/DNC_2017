@@ -65,7 +65,7 @@ Public Class IdentificacionPuesto
 
         ' Consulta SQL que obtiene los roles asociados al puesto
         sqlMain.SelectCommand = "
-    SELECT DISTINCT b.[id] AS id_rol, b.[descripcion] AS descripcion_rol
+    SELECT  b.[id] AS id_rol, b.[descripcion] AS descripcion_rol
     FROM [SGIDO_DEV].[dbo].[DO_PUESTOS_TB] AS a 
     INNER JOIN [SGIDO_DEV].[dbo].[DO_ROL_CT] AS b ON b.[id] = a.[fk_id_rol]
     WHERE a.[fk_id_puesto] = @Rol_puesto"
