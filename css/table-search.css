@@ -1,0 +1,102 @@
+﻿.table-search {
+    background: white;
+    border-collapse: collapse;
+    margin: auto;
+    padding: 5px;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+
+
+.table-search tr {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #e7e7e7;
+    color: #666B85;
+    font-size: 12px;
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+.table-search tbody tr td {
+    padding: 4px 3px 4px 3px;
+}
+
+.table-search tr:hover td {
+    background: #bbeaff;
+    color: #000;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #22262e;
+}
+
+.table-search.no_dobleclick tr:hover td {
+    background: #e1e1e1;
+    color: #000;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #22262e;
+}  
+
+.table-search tr:nth-child(odd) td {
+    background: #F8F8F8;
+}
+
+.table-search tr:nth-child(odd):hover td {
+    background: #bbeaff;
+}
+
+.table-search.no_dobleclick tr:nth-child(odd):hover td {
+    background: #e1e1e1;
+}
+
+.table-search > tbody > tr > td {
+    background: #FFFFFF;
+    vertical-align: middle;
+    border: 1px dotted #C1C3D1 !important;
+}
+
+
+.table-search tbody tr td:first-child {
+    text-align: center;
+    border-left: none !important;
+}
+
+.table-search tbody tr td:last-child {
+    border-right: none !important;
+    }
+
+/*Header Style*/
+.table-search > thead > tr > th, .table-search > tfoot > tr > th {
+    color: #fff;
+    background: #ff4339;
+    font-size: 17px;
+    font-weight: 400;
+    padding: 3px 3px 3px 3px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+    text-align: center;
+    border-left: 1px solid #dd4b39;
+    border-right: 1px solid #dd4b39;
+}
+.table-search > thead > tr > th {
+    border-top: 1px solid #dd4b39;
+    border-bottom: 3px solid #dd4b39;
+        
+}
+.table-search > tfoot > tr > th {
+    border-top: 3px solid #dd4b39;
+    border-bottom: 1px solid #dd4b39;
+}
+/*/Header Style*/
+
+.dataTables_length label, .dataTables_filter label {
+    font-weight: normal !important;
+}
+.dataTables_filter {
+    float:right;
+}
+
+.dataTables_filter > label > input {
+   width: 200px !important;
+}
