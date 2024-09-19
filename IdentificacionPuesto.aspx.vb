@@ -30,11 +30,11 @@ Public Class IdentificacionPuesto
         ' Crear un nuevo SqlDataSource y configurarlo
         Dim sqlMain As New SqlDataSource()
         sqlMain.ConnectionString = ConfigurationManager.ConnectionStrings("sqlConnectioncustom").ConnectionString
-        sqlMain.SelectCommand = "SELECT id, descripcion FROM DO_PUESTOS_TB"
+        sqlMain.SelectCommand = "SELECT id, CONCAT(codigo, ' - ', descripcion) AS descripcion_completa  FROM DO_PUESTOS_TB"
 
         ' Obtener los datos y asignarlos al DropDownList
         ddlTipoPuesto.DataSource = sqlMain
-        ddlTipoPuesto.DataTextField = "descripcion"
+        ddlTipoPuesto.DataTextField = "descripcion_completa"
         ddlTipoPuesto.DataValueField = "id"
         ddlTipoPuesto.DataBind()
 
