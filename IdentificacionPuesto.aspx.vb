@@ -23,14 +23,6 @@ Public Class IdentificacionPuesto
         Call Comportamientos()
     End Sub
 
-    Protected Sub ddlTipoPuesto_SelectedIndexChanged(sender As Object, e As EventArgs)
-        If ddlTipoPuesto.SelectedValue <> "" Then
-            Call ObtenerRolPorTipo(ddlTipoPuesto.SelectedValue)
-        Else
-
-        End If
-    End Sub
-
 
     Sub LlenarFormularioddl()
         Dim ddlTipoPuesto As DropDownList = CType(FindControl("ddlTipoPuesto"), DropDownList)
@@ -38,12 +30,7 @@ Public Class IdentificacionPuesto
         ' Crear un nuevo SqlDataSource y configurarlo
         Dim sqlMain As New SqlDataSource()
         sqlMain.ConnectionString = ConfigurationManager.ConnectionStrings("sqlConnectioncustom").ConnectionString
-
-        ' Consulta SQL que agrupa los puestos por su ID y descripción, eliminando duplicados
-        sqlMain.SelectCommand = "
-    SELECT DISTINCT ct.[id], ct.[descripcion] 
-    FROM [SGIDO_DEV].[dbo].[DO_PUESTOS_TB] tb
-    INNER JOIN [SGIDO_DEV].[dbo].[DO_PUESTO_CT] ct ON tb.[fk_id_puesto] = ct.[id]"
+        sqlMain.SelectCommand = "SELECT id, descripcion FROM DO_PUESTOS_TB"
 
         ' Obtener los datos y asignarlos al DropDownList
         ddlTipoPuesto.DataSource = sqlMain
@@ -53,35 +40,6 @@ Public Class IdentificacionPuesto
 
         ' Agregar un elemento al principio de la lista
         ddlTipoPuesto.Items.Insert(0, New ListItem("Selecciona...", ""))
-    End Sub
-
-
-
-
-    Private Sub ObtenerRolPorTipo(Rol_puesto As String)
-        Dim sqlMain As New SqlDataSource()
-        sqlMain.ConnectionString = ConfigurationManager.ConnectionStrings("sqlConnectioncustom").ConnectionString
-        ddlRol.Items.Clear()
-
-        ' Consulta SQL que obtiene los roles asociados al puesto
-        sqlMain.SelectCommand = "
-    SELECT  b.[id] AS id_rol, b.[descripcion] AS descripcion_rol
-    FROM [SGIDO_DEV].[dbo].[DO_PUESTOS_TB] AS a 
-    INNER JOIN [SGIDO_DEV].[dbo].[DO_ROL_CT] AS b ON b.[id] = a.[fk_id_rol]
-    WHERE a.[fk_id_puesto] = @Rol_puesto"
-
-        ' Agregar el parámetro para el puesto
-        sqlMain.SelectParameters.Add("Rol_puesto", Rol_puesto)
-
-        ' Obtener los datos y llenar el DropDownList de roles
-        Dim dvRol_puesto As DataView = DirectCast(sqlMain.Select(DataSourceSelectArguments.Empty), DataView)
-        For Each drv As DataRowView In dvRol_puesto
-            Dim item As New ListItem(drv("descripcion_rol").ToString(), drv("id_rol").ToString())
-            ddlRol.Items.Add(item)
-        Next
-
-        ' Agregar un elemento al principio de la lista
-        ddlRol.Items.Insert(0, New ListItem("Selecciona...", ""))
     End Sub
 
 
@@ -103,9 +61,6 @@ Public Class IdentificacionPuesto
         End Try
 
     End Sub
-
-
-
 
 
     Private Sub ObtCarrera(ByVal odbConexion As OleDbConnection)
@@ -211,10 +166,6 @@ Public Class IdentificacionPuesto
         ddlTiempo.DataValueField = "id"
         ddlTiempo.DataTextField = "DESCRIPCION"
         ddlTiempo.DataBind()
-        If ddlRol.Items.Count > 0 Then
-            ddlRol.Items.Insert(0, New ListItem("Seleccionar", 0))
-        End If
-
     End Sub
     Private Sub ObtIdioma(ByVal odbConexion As OleDbConnection)
 
@@ -256,9 +207,8 @@ Public Class IdentificacionPuesto
             odbComando.CommandType = CommandType.StoredProcedure
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             odbComando.Parameters.AddWithValue("@Usuario", hdUsuario.Value)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
 
             Dim odbLector As OleDbDataReader
             odbLector = odbComando.ExecuteReader()
@@ -284,9 +234,8 @@ Public Class IdentificacionPuesto
             odbComando.CommandType = CommandType.StoredProcedure
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             odbComando.Parameters.AddWithValue("@Usuario", hdUsuario.Value)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
 
             Dim odbLector As OleDbDataReader
             odbLector = odbComando.ExecuteReader()
@@ -312,8 +261,7 @@ Public Class IdentificacionPuesto
             odbComando.Connection = odbConexion
             odbComando.CommandType = CommandType.StoredProcedure
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
 
             Dim odbLector As OleDbDataReader
             odbLector = odbComando.ExecuteReader()
@@ -401,7 +349,7 @@ Public Class IdentificacionPuesto
             lblError.Text = Err.Number & " " & ex.Message
         End Try
     End Sub
-    Private Sub ddlRol_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlRol.SelectedIndexChanged
+    Private Sub ddlTipoPuesto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlTipoPuesto.SelectedIndexChanged
         Call ObtInformacionIDP()
         Call obtGridFunciones()
         Call obtGridFormacion()
@@ -427,8 +375,7 @@ Public Class IdentificacionPuesto
             odbComando.CommandType = CommandType.StoredProcedure
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             odbAdaptador.SelectCommand = odbComando
             odbAdaptador.Fill(dsDatos, "Tabla")
 
@@ -985,8 +932,7 @@ Public Class IdentificacionPuesto
             odbComando.CommandType = CommandType.StoredProcedure
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             odbAdaptador.SelectCommand = odbComando
             odbAdaptador.Fill(dsDatos, "Tabla")
 
@@ -1075,8 +1021,7 @@ Public Class IdentificacionPuesto
         odbComando.Connection = odbConexion
         odbComando.CommandType = CommandType.StoredProcedure
         'parametros
-        odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-        odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+        odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
 
         odbLector = odbComando.ExecuteReader
         If odbLector.HasRows Then
@@ -1102,8 +1047,7 @@ Public Class IdentificacionPuesto
             odbComando.CommandType = CommandType.StoredProcedure
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
 
             odbAdaptador.SelectCommand = odbComando
             odbAdaptador.Fill(dsDatos, "Tabla")
@@ -1297,8 +1241,7 @@ Public Class IdentificacionPuesto
         odbComando.Connection = odbConexion
         odbComando.CommandType = CommandType.StoredProcedure
         'parametros
-        odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-        odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+        odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
 
         odbLector = odbComando.ExecuteReader
         If odbLector.HasRows Then
@@ -1311,7 +1254,7 @@ Public Class IdentificacionPuesto
 #End Region
 #Region "Comportamientos"
     Public Sub Comportamientos()
-        If ddlRol.SelectedValue = "0" Or ddlRol.SelectedValue = "" Then
+        If ddlTipoPuesto.SelectedValue = "0" Or ddlTipoPuesto.SelectedValue = "" Then
             divInformacion.Visible = False
             btnCargarExcel.Visible = False
             lblEmpresa.Text = ""
@@ -1479,8 +1422,7 @@ Public Class IdentificacionPuesto
                 ScriptManager.RegisterClientScriptBlock(Page, GetType(Page), "Alert", "<script>alert('Debe registrar Habilidades y Competencias.');</script>", False)
                 Exit Sub
             End If
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             odbComando.Parameters.AddWithValue("@Pobjetivo_puesto", txtObjetivoPuesto.Text)
             odbComando.Parameters.AddWithValue("@Pfacultades_autorizacion", strFacultades)
             odbComando.Parameters.AddWithValue("@Prelacion_interna_quien", "")
@@ -1718,8 +1660,7 @@ Public Class IdentificacionPuesto
 
 
                         ' Agregar parámetros al comando
-                        odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-                        odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+                        odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
                         'odbComando.Parameters.AddWithValue("@Nivel", strNivel)
                         'odbComando.Parameters.AddWithValue("@Empresa", strCompania)
                         odbComando.Parameters.AddWithValue("@Objetivo", strObjetivo)
@@ -2059,7 +2000,7 @@ Public Class IdentificacionPuesto
         Dim path As String = Server.MapPath("~/UploadedFiles/")
         Dim strCarpetaPuesto As String = CStr(Now.Year & "\" & Now.Month & "\" & Now.Day & "\" & Now.Hour & Now.Minute & Now.Millisecond) & "\"
         Dim strCarpeta As String = path & "\Reclutamiento\DescriptivosPuesto\" & strCarpetaPuesto
-        Dim strNombreArchivo As String = ddlRol.SelectedItem.Text & ".xlsx"
+        Dim strNombreArchivo As String = ddlTipoPuesto.SelectedItem.Text & ".xlsx"
         Dim strDescriptivo As String = strCarpeta & strNombreArchivo
         Dim strArchivo As String = path & "\DescriptivodePuesto.xlsx"
         Dim dsDatos As New DataSet
@@ -2087,8 +2028,7 @@ Public Class IdentificacionPuesto
             odbComando.CommandType = CommandType.StoredProcedure
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             Dim odbAdaptador As New OleDbDataAdapter
             odbAdaptador.SelectCommand = odbComando
 
@@ -2224,11 +2164,10 @@ Public Class IdentificacionPuesto
             odbComando.CommandText = "do_relaciones_interna_sel_sp"
             odbComando.Connection = odbConexion
             odbComando.CommandType = CommandType.StoredProcedure
-            If ddlRol.SelectedValue = "0" Then Exit Sub
+            If ddlTipoPuesto.SelectedValue = "0" Then Exit Sub
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             Dim odbAdaptador As New OleDbDataAdapter
             odbAdaptador.SelectCommand = odbComando
 
@@ -2305,12 +2244,12 @@ Public Class IdentificacionPuesto
             odbComando.CommandText = "do_relaciones_interna_ins_sp"
             odbComando.Connection = odbConexion
             odbComando.CommandType = CommandType.StoredProcedure
-            If ddlRol.SelectedValue = "0" Then Exit Sub
+            If ddlTipoPuesto.SelectedValue = "0" Then Exit Sub
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@Usuario", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@Usuario", hdUsuario.Value)
+
 
             odbComando.ExecuteNonQuery()
             odbConexion.Close()
@@ -2396,11 +2335,10 @@ Public Class IdentificacionPuesto
             odbComando.CommandText = "do_relaciones_externa_sel_sp"
             odbComando.Connection = odbConexion
             odbComando.CommandType = CommandType.StoredProcedure
-            If ddlRol.SelectedValue = "0" Then Exit Sub
+            If ddlTipoPuesto.SelectedValue = "0" Then Exit Sub
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             Dim odbAdaptador As New OleDbDataAdapter
             odbAdaptador.SelectCommand = odbComando
 
@@ -2480,12 +2418,11 @@ Public Class IdentificacionPuesto
             odbComando.CommandText = "do_relaciones_externas_ins_sp"
             odbComando.Connection = odbConexion
             odbComando.CommandType = CommandType.StoredProcedure
-            If ddlRol.SelectedValue = "0" Then Exit Sub
+            If ddlTipoPuesto.SelectedValue = "0" Then Exit Sub
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@Usuario", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@Usuario", hdUsuario.Value)
 
             odbComando.ExecuteNonQuery()
             odbConexion.Close()
@@ -2602,7 +2539,7 @@ Public Class IdentificacionPuesto
             strDescriptivo = CreaDescriptivo()
 
             'Valida el tipo de Correo que tiene que enviar
-            strAsunto = "SIGIDO |" & IIf(rdTextoColaborador.Checked, " Notificación", "") & " Descriptivo de Puesto: " & ddlRol.SelectedItem.Text
+            strAsunto = "SIGIDO |" & IIf(rdTextoColaborador.Checked, " Notificación", "") & " Descriptivo de Puesto: " & ddlTipoPuesto.SelectedItem.Text
             If rdTextoColaborador.Checked Then
                 strEncabezadoCuerpo = "Estimado Colaborador (a).<br /> <br />" &
                          "Por medio del presente, cumplimos con enviarle y hacer de su conocimiento la actualización del Descriptivo de Puesto - Identificación de la Competencia, anexo (Formato FO-RH-4/4), correspondiente al puesto que desempeñas en  " & strEmpresa & ", en el entendido que " &
@@ -2735,7 +2672,7 @@ Public Class IdentificacionPuesto
         Dim path As String = Server.MapPath("~/UploadedFiles/")
         Dim strCarpetaPuesto As String = CStr(Now.Year & "\" & Now.Month & "\" & Now.Day & "\" & Now.Hour & Now.Minute & Now.Millisecond) & "\"
         Dim strCarpeta As String = path & "\Reclutamiento\DescriptivosPuesto\" & strCarpetaPuesto
-        Dim strNombreArchivo As String = ddlRol.SelectedItem.Text & ".xlsx"
+        Dim strNombreArchivo As String = ddlTipoPuesto.SelectedItem.Text & ".xlsx"
         Dim strDescriptivo As String = strCarpeta & strNombreArchivo
         Dim strArchivo As String = path & "\DescriptivodePuesto.xlsx"
         Dim dsDatos As New DataSet
@@ -2763,8 +2700,7 @@ Public Class IdentificacionPuesto
             odbComando.CommandType = CommandType.StoredProcedure
 
             'parametros
-            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlRol.SelectedValue)
-            odbComando.Parameters.AddWithValue("@PIdRol", ddlTipoPuesto.SelectedValue)
+            odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
             Dim odbAdaptador As New OleDbDataAdapter
             odbAdaptador.SelectCommand = odbComando
 

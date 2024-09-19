@@ -248,15 +248,6 @@ Partial Public Class IdentificacionPuesto
     Protected WithEvents ddlTipoPuesto As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control ddlRol.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents ddlRol As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''Control lblEmpresa.
     '''</summary>
     '''<remarks>

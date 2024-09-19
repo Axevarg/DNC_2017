@@ -93,8 +93,9 @@
             $("#ddlCarreras").select2({
                 placeholder: "Seleccionar Carreras"
             });
-            $("#ddlRol").select2();
-            //      $("#ddlUNegocio").select2();
+             $("#ddlTipoPuesto").select2({
+             placeholder: "Seleccionar Puesto"
+             });
 
             $("#ddlFacultadesAutorizacion").select2({
                 placeholder: "Selecciona Facultades de Autorización."
@@ -313,13 +314,11 @@
 
                                 <%-- FIN IMG 03-11-2022 -- NUEVAS COMPAÑIAS --%>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Puesto</label>
                                             <div class="form-group">
-                                                <asp:DropDownList ID="ddlTipoPuesto" class="form-control select2" runat="server" Width="100%" AutoPostBack="true" OnSelectedIndexChanged="ddlTipoPuesto_SelectedIndexChanged">
-                                                    
-                                                </asp:DropDownList>
+                                                <asp:DropDownList ID="ddlTipoPuesto" class="form-control select2" runat="server" Width="100%" AutoPostBack="true"></asp:DropDownList>
                                                 <img id="type" src="img/glyphLoading.gif" style="display: none" />
                                             </div>
                                             <!-- /.input group -->
@@ -327,17 +326,7 @@
                                         <!-- /.form group -->
                                     </div>
 
-                                    <div class="col-md-3">
-                                         <div class="form-group">
-                                            <label>Rol</label>
-                                            <div class="form-group">
-                                                <asp:DropDownList ID="ddlRol" class="form-control select2" runat="server" Width="100%" AutoPostBack="true" onchange="cargarInfo();"></asp:DropDownList>
-                                                <img id="loading" src="img/glyphLoading.gif" style="display: none" />
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-
-                                    </div>
+                                  
                                     <div class="col-md-6">
                                         <div class="form-group">
 
