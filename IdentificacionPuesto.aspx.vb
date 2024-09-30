@@ -1843,7 +1843,6 @@ Public Class IdentificacionPuesto
             dt.Columns.Add("Puesto", GetType(String))
             'dt.Columns.Add("Nivel", GetType(String))
             dt.Columns.Add("Objetivo", GetType(String))
-            ' dt.Columns.Add("Area", GetType(String))
             ' dt.Columns.Add("Puesto_Reporto", GetType(String))
             dt.Columns.Add("NumPuestosMeReportan", GetType(String))
             dt.Columns.Add("PuestosMeReportan", GetType(String))
