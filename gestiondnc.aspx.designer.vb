@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class gestiondnc
-    
+
     '''<summary>
     '''Control form1.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''Control ScriptManager1.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
-    
+
     '''<summary>
     '''Control uPMenu.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents uPMenu As Global.System.Web.UI.UpdatePanel
-    
+
     '''<summary>
     '''Control ulMenu.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ulMenu As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control lblNombre.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblNombre As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblNombre2.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblNombre2 As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblPuesto.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblPuesto As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblDepartamento.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblDepartamento As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblPerfil.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblPerfil As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control UpdatePanel.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents UpdatePanel As Global.System.Web.UI.UpdatePanel
-    
+
     '''<summary>
     '''Control modalTemario.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents modalTemario As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control lblCursoTemario.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblCursoTemario As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control iFramePdf.
     '''</summary>
@@ -128,8 +128,8 @@ Partial Public Class gestiondnc
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents iFramePdf As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+    Protected WithEvents iFramePdf As Global.System.Web.UI.HtmlControls.HtmlIframe
+
     '''<summary>
     '''Control lblErrorArchivo.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblErrorArchivo As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblError.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblError As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control divDatos.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents divDatos As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control ddlColaborador.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ddlColaborador As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''Control lblNombreCol.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblNombreCol As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblPuestoCol.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblPuestoCol As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblExperiencia.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblExperiencia As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblProfesion.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblProfesion As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblArea.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblArea As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblDireccion.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblDireccion As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblEstatus.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblEstatus As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control divCheck.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents divCheck As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control chkHistorico.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents chkHistorico As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''Control divHistorico.
     '''</summary>
@@ -255,7 +255,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents divHistorico As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control btnExportarHis.
     '''</summary>
@@ -264,7 +264,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnExportarHis As Global.System.Web.UI.HtmlControls.HtmlButton
-    
+
     '''<summary>
     '''Control ddlAnio.
     '''</summary>
@@ -273,7 +273,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ddlAnio As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''Control grdHistorico.
     '''</summary>
@@ -282,7 +282,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents grdHistorico As Global.System.Web.UI.WebControls.GridView
-    
+
     '''<summary>
     '''Control lblDatosHistoric.
     '''</summary>
@@ -291,7 +291,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblDatosHistoric As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control divRegistro.
     '''</summary>
@@ -300,7 +300,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents divRegistro As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
+
     '''<summary>
     '''Control btnExportarCursos.
     '''</summary>
@@ -309,7 +309,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnExportarCursos As Global.System.Web.UI.HtmlControls.HtmlButton
-    
+
     '''<summary>
     '''Control grdCursos.
     '''</summary>
@@ -318,7 +318,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents grdCursos As Global.System.Web.UI.WebControls.GridView
-    
+
     '''<summary>
     '''Control loadingPagina.
     '''</summary>
@@ -327,7 +327,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents loadingPagina As Global.System.Web.UI.HtmlControls.HtmlImage
-    
+
     '''<summary>
     '''Control lblGrid.
     '''</summary>
@@ -336,7 +336,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblGrid As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblGuardar.
     '''</summary>
@@ -345,7 +345,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblGuardar As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control lblErrorGestion.
     '''</summary>
@@ -354,7 +354,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblErrorGestion As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control btnGuardar.
     '''</summary>
@@ -363,7 +363,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnGuardar As Global.System.Web.UI.HtmlControls.HtmlButton
-    
+
     '''<summary>
     '''Control lblColaborador.
     '''</summary>
@@ -372,7 +372,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblColaborador As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''Control hdIdTab.
     '''</summary>
@@ -381,7 +381,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdIdTab As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdIdCurso.
     '''</summary>
@@ -390,7 +390,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdIdCurso As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdIndexCurso.
     '''</summary>
@@ -399,7 +399,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdIndexCurso As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdIndexPrioridad.
     '''</summary>
@@ -408,7 +408,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdIndexPrioridad As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdUsuario.
     '''</summary>
@@ -417,7 +417,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdUsuario As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdNoNominaUsuario.
     '''</summary>
@@ -426,7 +426,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdNoNominaUsuario As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdIdDNC.
     '''</summary>
@@ -435,7 +435,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdIdDNC As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdMaxCurso.
     '''</summary>
@@ -444,7 +444,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdMaxCurso As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdRol.
     '''</summary>
@@ -453,7 +453,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdRol As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hdClaveEmpleadoAD.
     '''</summary>
@@ -462,7 +462,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hdClaveEmpleadoAD As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hfGridView1SV.
     '''</summary>
@@ -471,7 +471,7 @@ Partial Public Class gestiondnc
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents hfGridView1SV As Global.System.Web.UI.WebControls.HiddenField
-    
+
     '''<summary>
     '''Control hfGridView1SH.
     '''</summary>
