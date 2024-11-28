@@ -92,7 +92,7 @@
     }
 
        .modal-content {
-        width: 90%; /* Ancho del modal, puedes ajustarlo según tus necesidades */
+        width: 100%; /* Ancho del modal, puedes ajustarlo según tus necesidades */
         max-width: 1200px; /* Ancho máximo del modal */
     }
 
@@ -240,6 +240,7 @@
                                                             <tr>
                                                               
                                                                 <th>Código</th>
+                                                                <th>Nombre</th>
                                                                 <th>Puesto</th>
                                                                 <th>Rol</th>
                                                                 <th>Tipo Puesto</th>
@@ -329,7 +330,7 @@
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-5">
                                                         <div class="form-group">
                                                             <label>Puesto (*):</label>
                                                             <asp:DropDownList ID="ddl_puesto" runat="server" CssClass="form-control select2" AutoPostBack="true" OnSelectedIndexChanged="ddlpuesto_SelectedIndexChanged" Style="width: 100%;">
@@ -338,7 +339,18 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                            <asp:DropDownList ID="ddl_opcion" runat="server" CssClass="form-control" Style="width: 100%;">
+                                                                <asp:ListItem Text="Vacío" Value="" />
+                                                                <asp:ListItem Text="en" Value="en" />
+                                                                <asp:ListItem Text="de" Value="de" />
+                                                            </asp:DropDownList>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-5">
                                                         <label>Rol (*):</label>
                                                         <div class="input-group input-group">
 
@@ -564,7 +576,7 @@
 
           "iDisplayStart": 0,
 
-          "aLengthMenu": [20, 50, 100],
+          "aLengthMenu": [10, 20, 50, 100],
 
           "select": true,
 
@@ -597,9 +609,6 @@
                         required: true
                     },
             '<%= ddl_puesto.ClientID %>': {
-                        required: true
-                    },
-                '<%= ddl_rol.ClientID %>': {
                         required: true
                     },
                 '<%= select2.ClientID %>': {
@@ -635,9 +644,6 @@
 
             '<%= ddl_puesto.ClientID %>': {
                         required: "Por favor, seleccione un Puesto"
-                    },
-            '<%= ddl_rol.ClientID %>': {
-                        required: "Por favor, seleccione un Rol"
                     },
 
             '<%= select2.ClientID %>': {

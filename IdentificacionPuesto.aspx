@@ -1156,6 +1156,30 @@
                 }
             }
         }
+
+        $(document).ready(function () {
+            $('#<%= ddlTipoPuesto.ClientID %>').select2({
+                placeholder: 'Selecciona un tipo de puesto',
+                allowClear: true,
+                matcher: function (params, data) {
+                    if ($.trim(params.term) === '') {
+                        return data;
+                    }
+                    if (typeof data.text === 'undefined') {
+                        return null;
+                    }
+
+                    // Realiza la búsqueda insensible a mayúsculas y por coincidencia parcial
+                    if (data.text.toLowerCase().indexOf(params.term.toLowerCase()) > -1) {
+                        return data;
+                    }
+
+                    // Excluir resultados que no coinciden
+                    return null;
+                }
+            });
+        });
+
     </script>
 </body>
 </html>

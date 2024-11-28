@@ -93,7 +93,7 @@ Public Class configuracionPuestos
     Sub LlenarFormulario(id_puesto As String)
 
 
-        sqlMain.SelectCommand = "SELECT a.id, codigo, Descripcion,tipo_puesto, (SELECT DESCRIPCION FROM DO_NIVEL_CT AA WHERE AA.ID=A.NIVEL) AS Nivel, unidad_negocio, posiciones, fk_id_area, estatus, empresa, 
+        sqlMain.SelectCommand = "SELECT a.id, codigo, a.Descripcion,tipo_puesto, (SELECT DESCRIPCION FROM DO_NIVEL_CT AA WHERE AA.ID=A.NIVEL) AS Nivel, unidad_negocio, posiciones, fk_id_area, estatus, empresa, 
                                   (SELECT [descripcion] FROM DO_PUESTOS_TB WHERE ID = A.jefe) AS Nombre_Jefe, 
                                     a.jefe AS id_jefe,          
                                    (SELECT CASE WHEN LEN([descripcion])>55 THEN 
@@ -104,6 +104,7 @@ Public Class configuracionPuestos
                                     WHERE A.id='" & id_puesto & "' "
 
         Dim dvdescripcion As DataView = DirectCast(sqlMain.Select(DataSourceSelectArguments.Empty), DataView)
+        Dim descripcionCompleta As String = ""
         For Each drv As DataRowView In dvdescripcion
 
             txtCodigo.Text = drv("codigo").ToString
@@ -112,6 +113,7 @@ Public Class configuracionPuestos
 
 
             txtposicion.Text = drv("posiciones").ToString
+            descripcionCompleta = drv("Descripcion").ToString
             'txtDescripcion.Text = drv("descripcion").ToString
 
         Next
@@ -198,6 +200,44 @@ Public Class configuracionPuestos
                 item.Selected = True ' Seleccionamos el ListItem encontrado
             End If
         End If
+
+
+        Dim puestoDescripcion As String = ObtenerPuesto(id_puesto) ' Obtener puesto desde la base de datos
+        Dim rolDescripcion As String = ObtenerRol(id_puesto) ' Obtener rol desde la base de datos
+
+        ' Concatenación analizada        
+        Dim textoSobrante As String
+
+        If String.IsNullOrEmpty(rolDescripcion) Then
+            ' Si rolDescripcion está vacío o es Nothing, solo reemplaza puestoDescripcion
+            textoSobrante = descripcionCompleta.Replace(puestoDescripcion, "").Trim()
+        Else
+            ' Si rolDescripcion contiene algo, reemplaza ambos
+            textoSobrante = descripcionCompleta _
+        .Replace(puestoDescripcion, "") _
+        .Replace(rolDescripcion, "") _
+        .Trim()
+        End If
+
+        Dim opcionSeleccionada As String = ""
+
+        ' Identificar el conector en el texto sobrante
+        If textoSobrante.Contains("de") Then
+            opcionSeleccionada = "de"
+        ElseIf textoSobrante.Contains("en") Then
+            opcionSeleccionada = "en"
+        Else
+            opcionSeleccionada = "" ' Vacío si no contiene "de" o "en"
+        End If
+
+        ' Limpiar el DropDownList y llenarlo
+        ddl_opcion.Items.Clear()
+        ddl_opcion.Items.Add(New ListItem("Vacío", ""))
+        ddl_opcion.Items.Add(New ListItem("en", "en"))
+        ddl_opcion.Items.Add(New ListItem("de", "de"))
+        ddl_opcion.SelectedValue = opcionSeleccionada
+
+
 
         btnEdit.Visible = True
         btnNew.Visible = False
@@ -819,7 +859,7 @@ Public Class configuracionPuestos
                                  WHERE CLAVE = a.clave_giro) AS puesto_giro
                             FROM DO_PUESTOS_TB a
                             INNER JOIN dbo.DO_PUESTO_CT AS b ON b.id = a.fk_id_puesto
-                            INNER JOIN dbo.DO_ROL_CT AS c ON c.id = a.fk_id_rol"
+                            LEFT JOIN dbo.DO_ROL_CT AS c ON c.id = a.fk_id_rol"
 
         Dim dv As DataView = DirectCast(sqlMain.Select(DataSourceSelectArguments.Empty), DataView)
 
@@ -831,6 +871,7 @@ Public Class configuracionPuestos
             Dim nombreEmpresa As String = ObtenerNombreEmpresa(codigoEmpresa)
             LLENAR_BUSQUEDA &= "<tr ondblclick='$(location).attr(""href"",""configuracionPuestos.aspx?id=" & drv("id").ToString & """);'>" &
                                      "<td>" & drv("codigo").ToString & "</td>" &
+                                      "<td>" & drv("descripcion").ToString & "</td>" &
                                      "<td>" & drv("descripcion_puesto").ToString & "</td>" &
                                      "<td> " & drv("descripcion_rol").ToString & " </td>" &
                                      "<td>" & drv("tipo_puesto").ToString & "</td>" &
@@ -903,7 +944,6 @@ Public Class configuracionPuestos
         Next
 
 
-
         sqlMain.SelectCommand = " SELECT clave , descripcion  FROM DO_PUESTO_VT  ORDER BY descripcion"
 
         Dim dvGiro As DataView = DirectCast(sqlMain.Select(DataSourceSelectArguments.Empty), DataView)
@@ -954,6 +994,7 @@ Public Class configuracionPuestos
     Sub ObtenerRoles_Puestos(Rol_puesto As String)
 
         ddl_rol.Items.Clear()
+
         sqlMain.SelectCommand = "SELECT 
 	                            b.[id] AS id_rol, b.[descripcion] AS descripcion_rol
                               FROM [dbo].[DO_PUESTO_ROL] AS a 
@@ -961,7 +1002,7 @@ Public Class configuracionPuestos
                               WHERE a.[fk_id_puesto]=  '" & Rol_puesto & "'"
 
 
-
+        ddl_rol.Items.Add(New ListItem(String.Empty, String.Empty))
         Dim dvRol_puesto As DataView = DirectCast(sqlMain.Select(DataSourceSelectArguments.Empty), DataView)
         For Each drv As DataRowView In dvRol_puesto
             Dim item As New ListItem(drv("descripcion_rol").ToString(), drv("id_rol").ToString())
@@ -1051,6 +1092,7 @@ Public Class configuracionPuestos
         Dim codigo As String = txtCodigo.Text
         Dim rol As String = ddl_rol.SelectedValue
         Dim puesto As String = ddl_puesto.SelectedValue
+        Dim opcion As String = ddl_opcion.SelectedValue
 
         Dim jefe As String = ddl_jefe.SelectedValue
         Dim giro As String = ddl_Giro.SelectedValue
@@ -1072,7 +1114,7 @@ Public Class configuracionPuestos
         Dim rolDescripcion As String = ddl_rol.SelectedItem.Text
 
         ' Concatenar descripción de puesto y rol
-        Dim descripcion As String = $"{puestoDescripcion} de {rolDescripcion}"
+        Dim descripcion As String = $"{puestoDescripcion} {opcion} {rolDescripcion}"
 
         Dim unidadNegocio As String = select3.SelectedValue
         Dim id As String = Request.QueryString("id") ' Obtener el ID desde la URL
@@ -1185,6 +1227,7 @@ Public Class configuracionPuestos
         Dim jefe As String = ddl_jefe.SelectedValue
         Dim giro As String = ddl_Giro.SelectedValue
         Dim empresa As String = select4.SelectedValue
+        Dim opcion As String = ddl_opcion.SelectedValue
 
         Dim comentarios As String = TextBox2.Text
         Dim estatus As String = If(radio1.Checked, "1", "0")
@@ -1197,7 +1240,7 @@ Public Class configuracionPuestos
         Dim rolDescripcion As String = ddl_rol.SelectedItem.Text
 
         ' Concatenar descripción de puesto y rol
-        Dim descripcion As String = $"{puestoDescripcion} de {rolDescripcion}"
+        Dim descripcion As String = $"{puestoDescripcion} {opcion} {rolDescripcion}"
 
         ' Insertar en la tabla DO_PUESTOS_TB utilizando el SQLDataSource
         sqlMain.InsertCommand = "INSERT INTO DO_PUESTOS_TB (codigo, descripcion, nivel, tipo_puesto, empresa,

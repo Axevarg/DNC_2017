@@ -1367,6 +1367,15 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:DNC_2017.configuracionPuestos._ddl_opcion">
+<summary>
+Control ddl_opcion.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:DNC_2017.configuracionPuestos._ddl_rol">
 <summary>
 Control ddl_rol.

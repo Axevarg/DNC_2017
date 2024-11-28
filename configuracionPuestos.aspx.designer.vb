@@ -167,6 +167,15 @@ Partial Public Class configuracionPuestos
     Protected WithEvents ddl_puesto As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''Control ddl_opcion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddl_opcion As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''Control ddl_rol.
     '''</summary>
     '''<remarks>
