@@ -643,7 +643,7 @@ Public Class GestionCapacitacion
             odbConexion.Open()
             Dim strQuery As String = " SELECT id,CONVERT(VARCHAR,correlativo) +' - '+descripcion_capacitacion_corta as descripcion " &
                                      " FROM GC_GESTION_CAPACITACION_TB " &
-                                     " WHERE fk_id_parametrizacion=" & IIf(strDnc = "", 0, strDnc) & " AND estatus ='ACTIVO' ORDER BY correlativo"
+                                     " WHERE fk_id_parametrizacion=" & IIf(strDnc = "", 0, strDnc) & " ORDER BY correlativo"
 
             Dim odbComando As OleDbCommand = New OleDbCommand(strQuery, odbConexion)
 
