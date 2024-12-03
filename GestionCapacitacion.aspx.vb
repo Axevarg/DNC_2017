@@ -1068,7 +1068,7 @@ Public Class GestionCapacitacion
     End Sub
     Private Sub ddlCursoAutorizadoDNC_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ddlCursoAutorizadoDNC.SelectedIndexChanged
         Call ComportamientoLimpiaDncCursos()
-        Call ObtieneDatosCursosDNC()
+        Call ObtCursoGestionado()
     End Sub
     'Obtiene los Cursos de la DNC Autorizados
     Public Sub ObtieneDatosCursosDNC()
@@ -1118,7 +1118,6 @@ Public Class GestionCapacitacion
         hdIdGestionCapacitacion.Value = ddlConsultaCursosGestionados.SelectedValue
 
         Call ComportamientoLimpiaDncCursos()
-        Call ObtieneDatosCursosDNC()
         Call ObtCursoGestionado()
         Call Comportamientos()
 
