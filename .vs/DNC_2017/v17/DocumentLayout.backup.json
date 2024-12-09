@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\SIGIDO\\plugins\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|c:\\sigido\\plugins\\gestioncapacitacion.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\gestioncapacitacion.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:gestioncapacitacion.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\gestioncapacitacion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|c:\\sigido\\plugins\\gestioncapacitacion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:gestioncapacitacion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\identificacionpuesto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,20 +70,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GestionCapacitacion.aspx.vb",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\GestionCapacitacion.aspx.vb",
               "RelativeDocumentMoniker": "GestionCapacitacion.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\GestionCapacitacion.aspx.vb",
               "RelativeToolTip": "GestionCapacitacion.aspx.vb",
-              "ViewState": "AgIAADoEAAAAAAAAAADgv0QEAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAOkCAAAAAAAAAAAwwC8EAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-12-02T16:12:28.331Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GestionCapacitacion.aspx",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\GestionCapacitacion.aspx",
               "RelativeDocumentMoniker": "GestionCapacitacion.aspx",
@@ -96,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
