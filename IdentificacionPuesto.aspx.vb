@@ -30,7 +30,7 @@ Public Class IdentificacionPuesto
         ' Crear un nuevo SqlDataSource y configurarlo
         Dim sqlMain As New SqlDataSource()
         sqlMain.ConnectionString = ConfigurationManager.ConnectionStrings("sqlConnectioncustom").ConnectionString
-        sqlMain.SelectCommand = "SELECT id, CONCAT(codigo, ' - ', descripcion) AS descripcion_completa  FROM DO_PUESTOS_TB"
+        sqlMain.SelectCommand = "SELECT id, CONCAT(codigo, ' - ', descripcion) AS descripcion_completa  FROM DO_PUESTOS_TB WHERE estatus='1'"
 
         ' Obtener los datos y asignarlos al DropDownList
         ddlTipoPuesto.DataSource = sqlMain
@@ -337,7 +337,7 @@ Public Class IdentificacionPuesto
                 ddlAccess.SelectedValue = odbLector(22).ToString
                 ddlProject.SelectedValue = odbLector(23).ToString
                 txtAreaExperiencia.Text = odbLector(24).ToString
-                ddlTiempo.SelectedValue = IIf(odbLector(25).ToString = "", "0", odbLector(25).ToString)
+                ddlTiempo.SelectedValue = IIf(odbLector(25).ToString = "", "1", odbLector(25).ToString)
                 txtSgi.Text = odbLector(26).ToString.Replace("/", vbCrLf)
                 txtRequisito.Text = odbLector(27).ToString.Replace("/", vbCrLf)
                 lblFechas.Text = "<br/><strong>Fecha de elaboración: </strong>" & odbLector(28).ToString &
@@ -1069,6 +1069,7 @@ Public Class IdentificacionPuesto
                     Dim ddlHabilidades2 As DropDownList = grdHabilidadesCompetencia.Rows(i).FindControl("ddlHabilidades2")
                     Dim ddlDominio2 As DropDownList = grdHabilidadesCompetencia.Rows(i).FindControl("ddlDominio2")
 
+                    Call obtddlHabilidades(ddlHabilidades1)
                     Call obtddlHabilidades(ddlHabilidades1)
                     Call obtddlHabilidades(ddlHabilidades2)
 
@@ -1997,62 +1998,63 @@ Public Class IdentificacionPuesto
         Dim sConnString As String = ConfigurationManager.ConnectionStrings("sqlConn").ConnectionString
         Dim odbConexion As OleDbConnection = New OleDbConnection(sConnString)
         Dim path As String = Server.MapPath("~/UploadedFiles/")
-        Dim strCarpetaPuesto As String = CStr(Now.Year & "\" & Now.Month & "\" & Now.Day & "\" & Now.Hour & Now.Minute & Now.Millisecond) & "\"
-        Dim strCarpeta As String = path & "\Reclutamiento\DescriptivosPuesto\" & strCarpetaPuesto
+        Dim strCarpetaPuesto As String = Now.Year & "\" & Now.Month & "\" & Now.Day & "\" & Now.Hour & Now.Minute & Now.Millisecond & "\"
+        Dim strCarpeta As String = path & "Reclutamiento\DescriptivosPuesto\" & strCarpetaPuesto
         Dim strNombreArchivo As String = ddlTipoPuesto.SelectedItem.Text & ".xlsx"
         Dim strDescriptivo As String = strCarpeta & strNombreArchivo
-        Dim strArchivo As String = path & "\DescriptivodePuesto.xlsx"
+        Dim strArchivoBase As String = path & "DescriptivodePuesto.xlsx"
         Dim dsDatos As New DataSet
-        Try
-            'Valida que el archivo Base Exista
-            If My.Computer.FileSystem.FileExists(strArchivo) Then
 
-                'crea directorio
-                If Not (Directory.Exists(strCarpeta)) Then
+        Try
+            ' Verifica que el archivo base exista
+            If File.Exists(strArchivoBase) Then
+                ' Crea el directorio si no existe
+                If Not Directory.Exists(strCarpeta) Then
                     Directory.CreateDirectory(strCarpeta)
                 End If
-                'Valida que el archivo exista si existe lo elimina
-                'If My.Computer.FileSystem.FileExists(strDescriptivo) Then My.Computer.FileSystem.DeleteFile(strDescriptivo)
-                'If File.Exists(strDescriptivo) Then
-                '    File.Delete(strDescriptivo)
-                '    'Copia el Archivo en la Ruta
-                'End If
-                File.Copy(strArchivo, strDescriptivo)
+
+                ' Copia el archivo base al nuevo destino
+                File.Copy(strArchivoBase, strDescriptivo, True)
+            Else
+                Throw New Exception("No se encontró el archivo base: " & strArchivoBase)
             End If
 
+            ' Ejecutar el procedimiento almacenado y llenar el DataSet
             odbConexion.Open()
-            Dim odbComando As New OleDbCommand
-            odbComando.CommandText = "do_info_puesto_sel_excel_print_sp"
-            odbComando.Connection = odbConexion
+            Dim odbComando As New OleDbCommand("do_info_puesto_sel_excel_print_sp", odbConexion)
             odbComando.CommandType = CommandType.StoredProcedure
-
-            'parametros
             odbComando.Parameters.AddWithValue("@PIdPuesto", ddlTipoPuesto.SelectedValue)
-            Dim odbAdaptador As New OleDbDataAdapter
-            odbAdaptador.SelectCommand = odbComando
 
+            Dim odbAdaptador As New OleDbDataAdapter(odbComando)
             odbAdaptador.Fill(dsDatos)
-            Call WriteExcel(strDescriptivo, dsDatos)
-            'Escribe Excel
-            '    Call EscribirExcel(strDescriptivo, dsDatos)
-            dsDatos.Dispose()
             odbConexion.Close()
 
-            'Descarga el Archivo Creado
-            Response.Clear()
+            ' Escribir los datos en el archivo Excel
+            WriteExcel(strDescriptivo, dsDatos)
 
-            Response.AddHeader("Content-Disposition", "attachment; filename=" & strNombreArchivo)
-            Response.Flush()
+            Dim nombreCodificado As String = HttpUtility.UrlEncode(strNombreArchivo).Replace("+", "%20")
+
+            ' Descargar el archivo
+            Response.Clear()
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            Response.AddHeader("Content-Disposition", "attachment; filename=""" & nombreCodificado & """")
             Response.TransmitFile(strDescriptivo)
             Response.End()
 
-
+        Catch ex As Threading.ThreadAbortException
+            ' Se lanza al usar Response.End(). No necesita manejarse.
         Catch ex As Exception
-            lblError.Text = Err.Number & " " & ex.Message
+            lblError.Text = "Error: " & ex.Message
+        Finally
+            If odbConexion.State = ConnectionState.Open Then
+                odbConexion.Close()
+            End If
+            dsDatos.Dispose()
         End Try
 
-
     End Sub
+
+
     'Inserta Informacion en formato de excel
     Private Sub EscribirExcel(strArchivo As String, dsDatos As DataSet)
         Dim sConnString As String = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" & strArchivo & "; Extended Properties=""Excel 12.0 Xml; HDR = NO;"""
