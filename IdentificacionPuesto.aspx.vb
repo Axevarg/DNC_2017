@@ -1580,6 +1580,7 @@ Public Class IdentificacionPuesto
                         'Dim strCompania As String = dt.Rows(0)("Compania").ToString()
                         'Dim strPuesto_Reporto As String = dt.Rows(0)("Puesto_Reporto").ToString()
                         'Dim strArea As String = dt.Rows(0)("Area").ToString()
+                        Dim strFacultadesAutorizacion As String = dt.Rows(0)("facultades_autorizacion").ToString().Trim()
                         Dim strGrado_Escolaridad As String = dt.Rows(0)("Grado_Escolaridad").ToString()
                         Dim strCarrera_Especializacion As String = dt.Rows(0)("Carrera_Especializacion").ToString()
                         Dim strResponsabilidad1 As String = dt.Rows(0)("Responsabilidad1").ToString()
@@ -1665,6 +1666,8 @@ Public Class IdentificacionPuesto
                         'odbComando.Parameters.AddWithValue("@Nivel", strNivel)
                         'odbComando.Parameters.AddWithValue("@Empresa", strCompania)
                         odbComando.Parameters.AddWithValue("@Objetivo", strObjetivo)
+                        odbComando.Parameters.AddWithValue("@FacultadesAutorizacion", strFacultadesAutorizacion)
+
                         'odbComando.Parameters.AddWithValue("@Area", strArea)
                         'odbComando.Parameters.AddWithValue("@Puesto_Reporto", strPuesto_Reporto)
                         odbComando.Parameters.AddWithValue("@Grado_Escolaridad", strGrado_Escolaridad)

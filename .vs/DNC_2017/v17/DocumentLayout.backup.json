@@ -15,10 +15,6 @@
       "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\gestioncapacitacion.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:gestioncapacitacion.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\gestioncapacitacion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:gestioncapacitacion.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
@@ -27,12 +23,16 @@
       "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:identificacionpuesto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\configuracionpuestos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:configuracionpuestos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\catalogosdo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:catalogosdo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\gestioncapacitacion.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:gestioncapacitacion.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|C:\\SIGIDO\\plugins\\configuracionpuestos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{8E8A672B-9D52-46E7-9930-A034EE9053FC}|DNC_2017.vbproj|solutionrelative:configuracionpuestos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,6 +66,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
@@ -80,14 +84,14 @@
               "RelativeDocumentMoniker": "IdentificacionPuesto.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\IdentificacionPuesto.aspx.vb",
               "RelativeToolTip": "IdentificacionPuesto.aspx.vb",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAswA4BAABXAAAAAAAAAA==",
+              "ViewState": "AgIAAPcAAAAAAAAAAAAQwAsBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T14:32:51.846Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "catalogosDO.aspx",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\catalogosDO.aspx",
               "RelativeDocumentMoniker": "catalogosDO.aspx",
@@ -95,11 +99,12 @@
               "RelativeToolTip": "catalogosDO.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-16T14:52:04.475Z"
+              "WhenOpened": "2024-12-16T14:52:04.475Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "GestionCapacitacion.aspx.vb",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\GestionCapacitacion.aspx.vb",
               "RelativeDocumentMoniker": "GestionCapacitacion.aspx.vb",
@@ -111,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "GestionCapacitacion.aspx",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\GestionCapacitacion.aspx",
               "RelativeDocumentMoniker": "GestionCapacitacion.aspx",
@@ -119,7 +124,8 @@
               "RelativeToolTip": "GestionCapacitacion.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-02T16:12:25.728Z"
+              "WhenOpened": "2024-12-02T16:12:25.728Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -129,14 +135,14 @@
               "RelativeDocumentMoniker": "Web.config",
               "ToolTip": "C:\\SIGIDO\\plugins\\Web.config",
               "RelativeToolTip": "Web.config",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAABqAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-10-02T22:58:57.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "configuracionPuestos.aspx",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\configuracionPuestos.aspx",
               "RelativeDocumentMoniker": "configuracionPuestos.aspx",
@@ -154,14 +160,14 @@
               "RelativeDocumentMoniker": "configuracionPuestos.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\configuracionPuestos.aspx.vb",
               "RelativeToolTip": "configuracionPuestos.aspx.vb",
-              "ViewState": "AgIAADAEAAAAAAAAAAAcwFwEAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADAEAAAAAAAAAAAQwFwEAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-09-19T15:46:41.875Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "IdentificacionPuesto.aspx",
               "DocumentMoniker": "C:\\SIGIDO\\plugins\\IdentificacionPuesto.aspx",
               "RelativeDocumentMoniker": "IdentificacionPuesto.aspx",
@@ -169,7 +175,8 @@
               "RelativeToolTip": "IdentificacionPuesto.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-13T14:32:46.831Z"
+              "WhenOpened": "2025-05-13T14:32:46.831Z",
+              "EditorCaption": ""
             }
           ]
         }
