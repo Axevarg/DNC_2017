@@ -1159,26 +1159,29 @@
 
         $(document).ready(function () {
             $('#<%= ddlTipoPuesto.ClientID %>').select2({
-                placeholder: 'Selecciona un tipo de puesto',
-                allowClear: true,
-                matcher: function (params, data) {
-                    if ($.trim(params.term) === '') {
-                        return data;
-                    }
-                    if (typeof data.text === 'undefined') {
-                        return null;
-                    }
+        placeholder: 'Selecciona un tipo de puesto',
+        allowClear: true,
+        matcher: function (params, data) {
+            if ($.trim(params.term) === '') {
+                return data;
+            }
+            if (typeof data.text === 'undefined') {
+                return null;
+            }
 
-                    // Realiza la búsqueda insensible a mayúsculas y por coincidencia parcial
-                    if (data.text.toLowerCase().indexOf(params.term.toLowerCase()) > -1) {
-                        return data;
-                    }
+            // Normaliza: elimina espacios y convierte a minúsculas
+            const term = params.term.toLowerCase().replace(/\s+/g, '');
+            const text = data.text.toLowerCase().replace(/\s+/g, '');
 
-                    // Excluir resultados que no coinciden
-                    return null;
-                }
-            });
-        });
+            if (text.indexOf(term) > -1) {
+                return data;
+            }
+
+            return null;
+        }
+    });
+});
+
 
     </script>
 </body>

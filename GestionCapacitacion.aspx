@@ -1003,6 +1003,7 @@
                         }
                         else {
                             row.style.backgroundColor = "#F2F2F2";
+                            row.style.backgroundColor = "#F2F2F2";
                         }
                         inputList[i].checked = false;
                         document.getElementById('<%= hdColaboradores.ClientID%>').value = "0";
@@ -1119,12 +1120,7 @@
               //      return false;
               //  }
                 //ddlClaveTematicaDc3
-                var ddlClaveTematicaDc3 = document.getElementById("ddlClaveTematicaDc3");
-                if (ddlClaveTematicaDc3.options[ddlClaveTematicaDc3.selectedIndex].value == 0) {
-                    alert("Debe de seleccionar la Clave Área Temática Dc3 en Datos de la Secretaria del Trabajo.");
-                    ddlClaveTematicaDc3.focus();
-                    return false;
-                }
+
                 //Tipo de Agennte
                 var ddlTipoAgenteDc3 = document.getElementById("ddlTipoAgenteDc3");
                 if (ddlTipoAgenteDc3.options[ddlTipoAgenteDc3.selectedIndex].value == 0) {
