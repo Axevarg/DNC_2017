@@ -1904,7 +1904,11 @@ Public Class GestionCapacitacion
         workSheet.Cell("A22").Value = odbLector(8).ToString 'Duracion
         workSheet.Cell("A24").Value = odbLector(15).ToString 'Area Tematica
         workSheet.Cell("A26").Value = odbLector(16).ToString 'Agente
-        workSheet.Cell("A35").Value = odbLector(17).ToString 'Instructor
+        Dim instructorCell As IXLCell = workSheet.Cell("A35")
+        instructorCell.Value = odbLector(17).ToString 'Instructor
+        instructorCell.Style.Font.FontName = "Arial Narrow"
+        instructorCell.Style.Font.FontSize = 8
+
         'Curp
         Dim strCurp As String = odbLector(4).ToString
         Dim iContador As Integer = 1

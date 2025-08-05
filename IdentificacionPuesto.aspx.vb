@@ -30,8 +30,10 @@ Public Class IdentificacionPuesto
         ' Crear un nuevo SqlDataSource y configurarlo
         Dim sqlMain As New SqlDataSource()
         sqlMain.ConnectionString = ConfigurationManager.ConnectionStrings("sqlConnectioncustom").ConnectionString
-        sqlMain.SelectCommand = "SELECT id, CONCAT(codigo, ' - ', descripcion) AS descripcion_completa  FROM DO_PUESTOS_TB WHERE estatus='1'"
-
+        sqlMain.SelectCommand = "SELECT id, CONCAT(codigo, ' - ', REPLACE(REPLACE(REPLACE(descripcion, '  ', ' '), '  ', ' '), '  ', ' ')) AS descripcion_completa
+                                FROM DO_PUESTOS_TB
+                                WHERE estatus='1'
+                                "
         ' Obtener los datos y asignarlos al DropDownList
         ddlTipoPuesto.DataSource = sqlMain
         ddlTipoPuesto.DataTextField = "descripcion_completa"
@@ -2545,12 +2547,13 @@ Public Class IdentificacionPuesto
             'Valida el tipo de Correo que tiene que enviar
             strAsunto = "SIGIDO |" & IIf(rdTextoColaborador.Checked, " Notificación", "") & " Descriptivo de Puesto: " & ddlTipoPuesto.SelectedItem.Text
             If rdTextoColaborador.Checked Then
-                strEncabezadoCuerpo = "Estimado Colaborador (a).<br /> <br />" &
-                         "Por medio del presente, cumplimos con enviarle y hacer de su conocimiento la actualización del Descriptivo de Puesto - Identificación de la Competencia, anexo (Formato FO-RH-4/4), correspondiente al puesto que desempeñas en  " & strEmpresa & ", en el entendido que " &
-                         "esta comunicación sirve como notificación formal. <br /> <br />" &
-                         "Te agradecemos leer el contenido del documento anexo y cualquier duda podrás consultarla con tu jefe inmediato o en la Coordinación de Desarrollo " &
-                         "Organizacional.<br /><br /> Se copia al Jefe Inmediato, a los fines de cualquier validación adicional u observación sobre el contenido del Descriptivo de Puesto." &
-                         "<br /> <br /> <strong>Es importante que por este mismo medio nos notifiques de recibido y enterado de la información enviada</strong> <br /> <br />"
+                strEncabezadoCuerpo = "Estimado Colaborador (a).<br /><br />" &
+                                        "Por medio del presente, cumplimos con enviarle y hacer de su conocimiento su Descriptivo de Puesto - Identificación de la Competencia, anexo (Formato FO-RH-4/4), " &
+                                        "correspondiente al puesto que desempeñas en " & strEmpresa & ", en el entendido que esta comunicación sirve como notificación formal.<br /><br />" &
+                                        "Te agradecemos leer el contenido del documento anexo, y cualquier duda podrás consultarla con tu jefe inmediato o con el área de Desarrollo Organizacional.<br /><br />" &
+                                        "<strong>Es importante que por este mismo medio nos notifiques de recibido y enterado de la información enviada, teniendo como máximo 3 días de tolerancia a partir del envío del presente correo; " &
+                                        "de lo contrario, se dará por conocido y entendido el contenido del documento.</strong><br /><br />" &
+                                        "Atentamente,<br />Desarrollo Organizacional"
             ElseIf rdTextoJefe.Checked Then
                 strEncabezadoCuerpo = "Estimado Colaborador (a).<br /> <br />" &
                     "Anexo enviamos el Descriptivo de Puesto - Identificación de la Competencia (Formato FO-RH-4/4), correspondiente al puesto indicado" &

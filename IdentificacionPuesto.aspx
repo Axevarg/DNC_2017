@@ -93,9 +93,9 @@
             $("#ddlCarreras").select2({
                 placeholder: "Seleccionar Carreras"
             });
-             $("#ddlTipoPuesto").select2({
-             placeholder: "Seleccionar Puesto"
-             });
+            $("#ddlTipoPuesto").select2({
+                placeholder: "Seleccionar Puesto"
+            });
 
             $("#ddlFacultadesAutorizacion").select2({
                 placeholder: "Selecciona Facultades de Autorización."
@@ -287,13 +287,13 @@
                                                 <br />
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <asp:RadioButton ID="rdTextoColaborador" runat="server" GroupName="Texto"  Text=" Texto Colaborador" Checked="true"/>
+                                                        <asp:RadioButton ID="rdTextoColaborador" runat="server" GroupName="Texto" Text=" Texto Colaborador" Checked="true" />
                                                     </div>
-                                                        <div class="col-md-4">
-                                                            <asp:RadioButton ID="rdTextoJefe" runat="server"  GroupName="Texto" Text=" Texto Jefe"/>
+                                                    <div class="col-md-4">
+                                                        <asp:RadioButton ID="rdTextoJefe" runat="server" GroupName="Texto" Text=" Texto Jefe" />
                                                     </div>
-                                                      <div class="col-md-4">
-                                                            <asp:RadioButton ID="rdTextoJefeSinColaborador" runat="server"  GroupName="Texto" Text=" Texto Jefe (Colaborador sin Correo)"/>
+                                                    <div class="col-md-4">
+                                                        <asp:RadioButton ID="rdTextoJefeSinColaborador" runat="server" GroupName="Texto" Text=" Texto Jefe (Colaborador sin Correo)" />
                                                     </div>
 
                                                 </div>
@@ -310,7 +310,7 @@
                                     </div>
                                 </div>
                                 <!--Fin  Modal -->
-                               
+
 
                                 <%-- FIN IMG 03-11-2022 -- NUEVAS COMPAÑIAS --%>
                                 <div class="row">
@@ -326,7 +326,7 @@
                                         <!-- /.form group -->
                                     </div>
 
-                                  
+
                                     <div class="col-md-6">
                                         <div class="form-group">
 
@@ -1169,18 +1169,26 @@
                 return null;
             }
 
-            // Normaliza: elimina espacios y convierte a minúsculas
-            const term = params.term.toLowerCase().replace(/\s+/g, '');
-            const text = data.text.toLowerCase().replace(/\s+/g, '');
+            // Normaliza: convierte a minúsculas, elimina espacios extra, y quita espacios iniciales/finales
+            const normalize = str => str.toLowerCase().replace(/\s+/g, ' ').trim();
 
-            if (text.indexOf(term) > -1) {
-                return data;
-            }
+            const term = normalize(params.term);
+            const text = normalize(data.text);
 
-            return null;
+            // Divide el término en palabras
+            const termWords = term.split(' ');
+
+            // Verifica que todas las palabras estén en el texto normalizado
+            const matches = termWords.every(function (word) {
+                return text.includes(word);
+            });
+
+            return matches ? data : null;
         }
     });
 });
+
+
 
 
     </script>
