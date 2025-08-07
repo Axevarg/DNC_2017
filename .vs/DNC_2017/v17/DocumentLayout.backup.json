@@ -84,7 +84,7 @@
               "RelativeDocumentMoniker": "IdentificacionPuesto.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\IdentificacionPuesto.aspx.vb",
               "RelativeToolTip": "IdentificacionPuesto.aspx.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABgAAAAAAAAAA==",
+              "ViewState": "AgIAAOoJAAAAAAAAAAAuwPoJAAB1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T14:32:51.846Z",
               "EditorCaption": ""
@@ -99,8 +99,7 @@
               "RelativeToolTip": "IdentificacionPuesto.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-13T14:32:46.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T14:32:46.831Z"
             },
             {
               "$type": "Document",
@@ -173,8 +172,7 @@
               "RelativeToolTip": "configuracionPuestos.aspx.vb",
               "ViewState": "AgIAAFkEAAAAAAAAAABRwFwEAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-19T15:46:41.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-19T15:46:41.875Z"
             }
           ]
         }
