@@ -84,7 +84,7 @@
               "RelativeDocumentMoniker": "IdentificacionPuesto.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\IdentificacionPuesto.aspx.vb",
               "RelativeToolTip": "IdentificacionPuesto.aspx.vb",
-              "ViewState": "AgIAAMYAAAAAAAAAAAAgwMoJAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAF8KAAAAAAAAAAAqwGkKAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T14:32:51.846Z",
               "EditorCaption": ""
@@ -122,9 +122,10 @@
               "RelativeDocumentMoniker": "GestionCapacitacion.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\GestionCapacitacion.aspx.vb",
               "RelativeToolTip": "GestionCapacitacion.aspx.vb",
-              "ViewState": "AgIAACAHAAAAAAAAAAArwHYHAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIIHAAAAAAAAAAAcwHYHAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-12-02T16:12:28.331Z"
+              "WhenOpened": "2024-12-02T16:12:28.331Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -136,7 +137,8 @@
               "RelativeToolTip": "GestionCapacitacion.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-02T16:12:25.728Z"
+              "WhenOpened": "2024-12-02T16:12:25.728Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
