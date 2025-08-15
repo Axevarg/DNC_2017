@@ -84,7 +84,7 @@
               "RelativeDocumentMoniker": "IdentificacionPuesto.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\IdentificacionPuesto.aspx.vb",
               "RelativeToolTip": "IdentificacionPuesto.aspx.vb",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAYwMoJAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAF8KAAAAAAAAAAAqwGkKAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T14:32:51.846Z",
               "EditorCaption": ""
@@ -99,7 +99,8 @@
               "RelativeToolTip": "IdentificacionPuesto.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-05-13T14:32:46.831Z"
+              "WhenOpened": "2025-05-13T14:32:46.831Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -121,9 +122,10 @@
               "RelativeDocumentMoniker": "GestionCapacitacion.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\GestionCapacitacion.aspx.vb",
               "RelativeToolTip": "GestionCapacitacion.aspx.vb",
-              "ViewState": "AgIAACAHAAAAAAAAAAArwHYHAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIIHAAAAAAAAAAAcwHYHAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-12-02T16:12:28.331Z"
+              "WhenOpened": "2024-12-02T16:12:28.331Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -135,7 +137,8 @@
               "RelativeToolTip": "GestionCapacitacion.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-02T16:12:25.728Z"
+              "WhenOpened": "2024-12-02T16:12:25.728Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -147,7 +150,8 @@
               "RelativeToolTip": "Web.config",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-10-02T22:58:57.392Z"
+              "WhenOpened": "2024-10-02T22:58:57.392Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -171,7 +175,8 @@
               "RelativeToolTip": "configuracionPuestos.aspx.vb",
               "ViewState": "AgIAAFkEAAAAAAAAAABRwFwEAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-19T15:46:41.875Z"
+              "WhenOpened": "2024-09-19T15:46:41.875Z",
+              "EditorCaption": ""
             }
           ]
         }
