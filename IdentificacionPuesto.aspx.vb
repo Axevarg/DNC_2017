@@ -2581,7 +2581,6 @@ Public Class IdentificacionPuesto
             strCuerpo = strCuerpo & "<hr />" & vbCrLf
             strCuerpo = strCuerpo & "<p style=""font-family:Arial;"">Atentamente,</p>" & vbCrLf
             strCuerpo = strCuerpo & "<strong><p style=""font-family:Arial; font-size: 11pt;"">Desarrollo Organizacional</p></strong>" & vbCrLf & vbCrLf
-            strCuerpo = strCuerpo & "<img src=""Desarrollo.jpg""/> " & vbCrLf & vbCrLf & vbCrLf
 
             'Colaborador
             For Each item As ListItem In ddlColaboradoresEnviar.Items
@@ -2652,18 +2651,18 @@ Public Class IdentificacionPuesto
         Dim arrValores As New ArrayList
         Dim strResultado As String = ""
 
-
         Dim odbComando As New OleDbCommand
         odbComando.CommandText = "sigido_enviaremail_adjuntos_sp"
         odbComando.Connection = odbConexion
         odbComando.CommandType = CommandType.StoredProcedure
+
 
         'parametros
         odbComando.Parameters.AddWithValue("@destinatario", Destinatario)
         odbComando.Parameters.AddWithValue("@asunto", Asunto)
         odbComando.Parameters.AddWithValue("@cuerpo", Cuerpo)
         odbComando.Parameters.AddWithValue("@Concopia", Copia)
-        odbComando.Parameters.AddWithValue("@Adjunto", Adjunto + ";")
+        odbComando.Parameters.AddWithValue("@Adjunto", Adjunto)
         odbComando.Parameters.AddWithValue("@CopiaOculta", strCopiaOculta)
 
         odbComando.ExecuteNonQuery()
