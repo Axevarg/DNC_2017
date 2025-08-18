@@ -2551,7 +2551,7 @@ Public Class IdentificacionPuesto
                                         "Por medio del presente, cumplimos con enviarle y hacer de su conocimiento su Descriptivo de Puesto - Identificación de la Competencia, anexo (Formato FO-RH-4/4), " &
                                         "correspondiente al puesto que desempeñas en " & strEmpresa & ", en el entendido que esta comunicación sirve como notificación formal.<br /><br />" &
                                         "Te agradecemos leer el contenido del documento anexo, y cualquier duda podrás consultarla con tu jefe inmediato o con el área de Desarrollo Organizacional.<br /><br />" &
-                                        "<strong style=""color:orange;"">Es importante que por este mismo medio nos notifiques de recibido y enterado de la información enviada, teniendo como máximo 3 días de tolerancia a partir del envío del presente correo; " &
+                                        "<strong style=""color:#FF6600;"">Texto</strong> Es importante que por este mismo medio nos notifiques de recibido y enterado de la información enviada, teniendo como máximo 3 días de tolerancia a partir del envío del presente correo; " &
                                         "de lo contrario, se dará por conocido y entendido el contenido del documento.</strong><br /><br />" &
                                         "Atentamente,<br />Desarrollo Organizacional"
             ElseIf rdTextoJefe.Checked Then

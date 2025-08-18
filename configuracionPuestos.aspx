@@ -627,9 +627,6 @@
                         required: true
                     },
 
-                '<%= ddl_jefe.ClientID %>': {
-                        required: true
-                    },
                 '<%= ddl_Giro.ClientID %>': {
                         required: true
                     },
@@ -660,9 +657,6 @@
                     },
               '<%= ddl_infogiro.ClientID %>': {
                         required: "Por favor, seleccione un area adscribe"
-                    },
-            '<%= ddl_jefe.ClientID %>': {
-                        required: "Por favor, seleccione un Jefe"
                     },
             '<%= ddl_Giro.ClientID %>': {
                         required: "Por favor, seleccione un Puesto GIRO"
