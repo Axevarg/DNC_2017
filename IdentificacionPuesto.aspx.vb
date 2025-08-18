@@ -2545,7 +2545,7 @@ Public Class IdentificacionPuesto
             strDescriptivo = CreaDescriptivo()
 
             'Valida el tipo de Correo que tiene que enviar
-#ConststrAsunto = "SIGIDO |" & IIf(rdTextoColaborador.Checked, " Notificación", "") & " Descriptivo de Puesto: " & ddlTipoPuesto.SelectedItem.Text
+            strAsunto = "SIGIDO |" & IIf(rdTextoColaborador.Checked, " Notificación", "") & " Descriptivo de Puesto: " & ddlTipoPuesto.SelectedItem.Text
             If rdTextoColaborador.Checked Then
                 strEncabezadoCuerpo = "Estimado Colaborador (a).<br /><br />" &
                                         "Por medio del presente, cumplimos con enviarle y hacer de su conocimiento su Descriptivo de Puesto - Identificación de la Competencia, anexo (Formato FO-RH-4/4), " &
@@ -2663,7 +2663,7 @@ Public Class IdentificacionPuesto
         odbComando.Parameters.AddWithValue("@asunto", Asunto)
         odbComando.Parameters.AddWithValue("@cuerpo", Cuerpo)
         odbComando.Parameters.AddWithValue("@Concopia", Copia)
-        odbComando.Parameters.AddWithValue("@Adjunto", Adjunto)
+        odbComando.Parameters.AddWithValue("@Adjunto", Adjunto + ";")
         odbComando.Parameters.AddWithValue("@CopiaOculta", strCopiaOculta)
 
         odbComando.ExecuteNonQuery()
