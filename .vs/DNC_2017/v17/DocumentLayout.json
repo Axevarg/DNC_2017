@@ -84,7 +84,7 @@
               "RelativeDocumentMoniker": "IdentificacionPuesto.aspx.vb",
               "ToolTip": "C:\\SIGIDO\\plugins\\IdentificacionPuesto.aspx.vb",
               "RelativeToolTip": "IdentificacionPuesto.aspx.vb",
-              "ViewState": "AgIAAPIJAAAAAAAAAAAAwP4JAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAFoKAAAAAAAAAAAgwGMKAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-13T14:32:51.846Z",
               "EditorCaption": ""
@@ -172,7 +172,8 @@
               "RelativeToolTip": "configuracionPuestos.aspx.vb",
               "ViewState": "AgIAAEoEAAAAAAAAAIAwwFwEAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-19T15:46:41.875Z"
+              "WhenOpened": "2024-09-19T15:46:41.875Z",
+              "EditorCaption": ""
             }
           ]
         }
